@@ -4,7 +4,7 @@ import (
 	"github.com/fatih/structs"
 )
 
-type user struct {
+type User struct {
 	ID				string	`json:"id" structs:"id" db:"id"`
 	FatherName		string	`json:"father_name" structs:"father_name" db:"father_name"`
 	FirstName		string	`json:"first_name" structs:"first_name" db:"first_name"`
@@ -16,13 +16,13 @@ type user struct {
 }
 
 // Map function returns map values.
-func (s *user) Map() map[string]interface{} {
-	return structs.Map(s)
+func (u *User) Map() map[string]interface{} {
+	return structs.Map(u)
 }
 
 // Names function returns field names.
-func (s *user) Names() []string {
-	fields := structs.Fields(s)
+func (u *User) Names() []string {
+	fields := structs.Fields(u)
 	names := make([]string, len(fields))
 	for i, field := range fields {
 		name := field.Name()
